@@ -10,8 +10,8 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "Course",
     },
-    { timestamps: true },
+   
   ],
-});
+}, { timestamps: true },);
 const User = mongoose.model("User", userSchema);
 export default User;

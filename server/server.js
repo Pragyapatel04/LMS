@@ -7,12 +7,12 @@ import { clerkWebhooks } from "./controllers/webhooks.js";
 //Initialize Express
 const app = express();
 //connect to database
-await connectDB()
+await connectDB();
 //Middleware
 app.use(cors());
 //Routes
 app.get("/", (req, res) => res.send("API working"));
-app.post("/clerk",express.json(),clerkWebhooks)
+app.post("/clerk", express.raw({type:"*/*"}), clerkWebhooks);
 //Port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
