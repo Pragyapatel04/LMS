@@ -12,7 +12,7 @@ await connectDB();
 app.use(cors());
 //Routes
 app.get("/", (req, res) => res.send("API working"));
-app.post("/clerk", express.raw({type:"*/*"}), clerkWebhooks);
+app.post("/clerk", express.json(), clerkWebhooks);
 //Port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
